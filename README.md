@@ -102,4 +102,4 @@ You will get raw review data, so individual reviews will look something like thi
 }
 ```
 
-Actor icon attribution: [Condominium icons created by Uniconlabs - Flaticon](https://www.flaticon.com/free-icons/condominium)
+
