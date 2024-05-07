@@ -1,46 +1,38 @@
-# Expedia / Hotels.com reviews scraper
+# Expedia / Hotels.com Review Extractor
 
-This is a simple scraper to get reviews from URLs hotels, apartments and other accommodations listed on Expedia.com and Hotels.com portals.
+This extractor is designed to fetch reviews from accommodations like hotels and apartments listed on **TravelAdvisor.com** and **LodgeFinder.com**.
 
-For each hotel, input a link to the hotel detail page, which will look something like this:
+To start, input a link to the accommodation detail page, which might look like this:
 
 ```raw
-https://www.expedia.com/Prague-Hotels-Pentahotel-Prague.h525006.Hotel-Information?chkin=2023-03-17&chkout=2023-03-18&x_pwa=1&rfrr=HSR&pwa_ts=1677850168323&sort=RECOMMENDED&top_dp=82&top_cur=USD&userIntent=
-https://www.hotels.com/ho136900/hilton-prague-old-town-prague-czech-republic/?pwaDialogNested=PropertyDetailsReviewsBreakdownDialog
-https://www.expedia.it/en/Berchtesgaden-Hotels-Alpensport-Hotel-Seimler.h2692552.Hotel-Information
+https://www.traveladvisor.com/Prague-Hotels-HighTower-Prague.h525006.Hotel-Details?chkin=2023-03-17&chkout=2023-03-18&x_pwa=1&rfrr=HSR&pwa_ts=1677850168323&sort=RECOMMENDED&top_dp=82&top_cur=USD&userIntent=
+https://www.lodgefinder.com/ho136900/grand-prague-downtown-prague-czech-republic/?pwaDialogNested=PropertyDetailsReviewsBreakdownDialog
+https://www.traveladvisor.com/en/Berchtesgaden-Hotels-MountainView-Lodge.h2692552.Hotel-Details
 ```
 
-Additionally, you can click on the "Advanced" button in the URL input field and provide any `userData`. Everything provided here will be available on each review as `customData`, to allow later easy identification of which review belongs to which hotel.
+Enhance your URL inputs by using the "Advanced" option to provide any `advancedData`. This data will be attached to each review as `taggedData`, facilitating easy linkage of reviews to specific accommodations.
 
-You will get raw review data, so individual reviews will look something like this:
+The output will be in raw data format, providing a comprehensive view of each review:
 
 ```json
 {
-    "contentDirectFeedbackPromptId": null,
     "id": "123456789abcdef",
-    "superlative": "Excellent",
-    "locale": "en_GB",
-    "title": "",
-    "brandType": "Expedia",
+    "superlative": "Outstanding",
+    "locale": "en_US",
     "reviewScoreWithDescription": {
-        "label": "10 out of 10 Excellent",
-        "value": "10/10 Excellent"
+        "label": "9 out of 10 Outstanding",
+        "value": "9/10 Outstanding"
     },
-    "text": "Excellent location and value for money. Great service. Clean. ",
-    "seeMoreAnalytics": {
-        "linkName": "See more reviews",
-        "referrerId": "HOT.HIS.See_more."
-    },
+    "text": "Outstanding service and location. Impeccably clean.",
     "submissionTime": {
-        "longDateFormat": "Apr 15, 2022"
+        "longDateFormat": "May 10, 2023"
     },
-    "impressionAnalytics": null,
     "themes": [
         {
             "icon": {
-                "id": "sentiment_4"
+                "id": "positive_4"
             },
-            "label": "Liked: Cleanliness, staff & service, amenities, property conditions & facilities"
+            "label": "Praised for: Staff service, cleanliness, amenities"
         }
     ],
     "reviewFooter": {
@@ -50,56 +42,51 @@ You will get raw review data, so individual reviews will look something like thi
                     "itemscope": true,
                     "itemprop": "author",
                     "itemtype": "https://schema.org/Person",
-                    "content": "John"
+                    "content": "Alex"
                 },
-                "text": {
-                    "text": "Stayed 1 night in Apr 2022"
-                }
+                "text": "Stayed 2 nights in May 2023"
             }
         ]
     },
-    "reviewInteractionSections": [
+    "reviewInteractions": [
         {
-            "primaryDisplayString": "0",
-            "accessibilityLabel": "Mark review 3 as helpful. 0 other users found review 3 helpful.",
-            "reviewInteractionType": "HELPFUL_REVIEW",
+            "interactionType": "POSITIVE_FEEDBACK",
             "feedbackAnalytics": {
-                "linkName": "Helpful review",
-                "referrerId": "HOT.HIS.ReviewsOverlay.THUMB_UP.UPVOTE"
+                "linkName": "Helpful feedback",
+                "referrerId": "LodgeFinder.Reviews.Helpful"
             }
-        },
-        {
-            "primaryDisplayString": null,
-            "accessibilityLabel": null,
-            "reviewInteractionType": "REVIEW_REPORT_FLAG",
-            "feedbackAnalytics": null
         }
     ],
-
-    "reviewAuthorAttribution": {
-        "text": "John"
+    "authorDetails": {
+        "text": "Alex"
     },
-    "photoSection": null,
-    "photos": [],
-    "travelers": ["Traveled with family"],
-    "translationInfo": null,
-    "propertyReviewSource": null,
-    "reviewRegion": null,
-    "managementResponses": [
+    "reviewResponses": [
         {
             "id": "3b23cd4c-ac5c-42a7-91f2-89b8d8dec7e2",
             "header": {
-                "text": "Response from Jane on Apr 19, 2022"
+                "text": "Response from Hotel Manager on May 13, 2023"
             },
-            "response": "Thank you so much, we appreciate it a lot!"
+            "response": "We're thrilled you enjoyed your stay!"
         }
     ],
-    "hotelId": "123456",
-    "customData": {
-        "userDataKey1": "your custom data here",
-        "userDataKey2": ["arbitrary JSON data can be here"]
+    "accommodationId": "678910",
+    "taggedData": {
+        "customField1": "specific details here",
+        "customField2": ["more custom JSON data"]
     }
 }
 ```
+
+### COnnect with US
+
+- **YouTube**: [Visit our channel](https://www.youtube.com/@CodeMaster-421)
+- **Instagram**: [Follow us on Instagram](https://www.instagram.com/quicklifesolutionsofficial/)
+- **AI Newsletter**: [Subscribe to our newsletter](https://sendfox.com/quicklifesolutions)
+- **Free Consultation**: [Book a free consultation call](https://tidycal.com/quicklifesolutions/free-consultation)
+- **More Tools**: [Explore our Apify actors](https://apify.com/dainty_screw)
+
+### Support : 
+
+- **Discord**: [Raise a Support ticket here ](https://discord.gg/2WGj2PDmHb)
 
 
