@@ -1,4 +1,4 @@
-# Expedia / Hotels.com Review Extractor
+### Expedia Hotel Data Aggregator - Organize and Examine Insights
 
 This extractor is designed to fetch reviews from accommodations like hotels and apartments listed on **TravelAdvisor.com** and **LodgeFinder.com**.
 
